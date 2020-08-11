@@ -1,24 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, View, ScrollView, SafeAreaView, TouchableOpacity } from "react-native";
 import MenuHeader from "../components/MenuHeader";
-import Toolbar from "../components/Toolbar";
-import Zone from "../components/Zone";
+import ListItem from "../components/ListItem";
+import Geofencing from '../screens/Geofencing';
 
 function Settings(props) {
-  return (
-    <View style={styles.container}>
-      <MenuHeader title={'Settings'} setMenu={props.setMenu} stateMenu={props.stateMenu} />
-      <SafeAreaView style={styles.scrollArea}>
-        <ScrollView>
-          <Zone style={styles.temperature} title={'Permissions'}/>
-          <TouchableOpacity onPress={() => props.setApp('Geofencing')} >
-            <Zone style={styles.temperature2} title={'Geofencing'}/>
-          </TouchableOpacity>
-          <Zone style={styles.temperature3} title={'Setpoints'}/>
-        </ScrollView>
-      </SafeAreaView>
-    </View>
-  );
+  const[settingState,setSettingState] = useState('');
+
+  if(settingState == ''){
+    return (
+      <View style={styles.container}>
+        <MenuHeader title={'Settings'} setMenu={props.setMenu} stateMenu={props.stateMenu} />
+        <SafeAreaView style={styles.scrollArea}>
+          <ScrollView>
+            <ListItem style={styles.temperature} title={'Permissions'}/>
+            <TouchableOpacity onPress={() => setSettingState('Geofencing')} >
+              <ListItem style={styles.temperature2} title={'Geofencing'}/>
+            </TouchableOpacity>
+            <ListItem style={styles.temperature3} title={'Setpoints'}/>
+          </ScrollView>
+        </SafeAreaView>
+      </View>
+    );
+  }
+  
+  else if(settingState == 'Geofencing'){
+    return(
+      <Geofencing setSetting={setSettingState} />
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -27,7 +37,7 @@ const styles = StyleSheet.create({
   },
   scrollArea: {
     flex: 1,
-    backgroundColor: "#E6E6E6",
+    backgroundColor: 'white',
   },
 });
 

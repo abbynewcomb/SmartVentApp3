@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import EntypoIcon from "react-native-vector-icons/Entypo";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
+import FontAwesome5Icon from "react-native-vector-icons/FontAwesome5";
 import IoniconsIcon from "react-native-vector-icons/Ionicons";
 import FeatherIcon from "react-native-vector-icons/Feather";
 
@@ -26,13 +27,13 @@ function Menu(props) {
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={() => changeScreen('Zones')}>
           <View style={styles.iconcontainer}>
-            <FontAwesomeIcon name='clock-o' style={styles.icon} />
+            <FontAwesomeIcon name='thermometer-full' style={styles.icon} />
           </View>
           <Text style={styles.text}>Zones</Text>  
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={() => changeScreen('Routines')}>
           <View style={styles.iconcontainer}>
-            <FontAwesomeIcon name='thermometer-full' style={styles.icon} />
+            <FontAwesome5Icon name='calendar-alt' style={styles.icon} />
           </View>
           <Text style={styles.text}>Routines</Text>  
         </TouchableOpacity>
@@ -51,6 +52,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#303030',
+    borderRightColor: 'white',
+    borderRightWidth: StyleSheet.hairlineWidth,
   },
   menuContainer: {
     paddingTop: 20,
@@ -71,11 +74,10 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 30,
     color: 'white',
-    fontWeight: 'bold',
     paddingLeft: 5,
   },
   button: {
-    paddingLeft: 4,
+    paddingLeft: 8,
     paddingBottom: 20,
     flexDirection: 'row',
     alignItems: 'center',

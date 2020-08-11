@@ -1,23 +1,22 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Text, Switch } from "react-native";
 import DetailHeader from "../components/DetailHeader";
-import Toolbar from "../components/Toolbar";
 import MaterialMapView1 from "../components/MaterialMapView1";
 
 function Geofencing(props) {
-  const[switchValue,setSwitchValue] = useState(false);
+  const[switchValue,setSwitchValue] = useState(true);
 
   return (
     <View style={styles.container}>
-      <DetailHeader title={'Geofencing'} returnTo={'Settings'} setApp={props.setApp} />
+      <DetailHeader title={'Geofencing'} setState={props.setSetting} />
       <View style={styles.content}>
-        <View style={styles.horiz}>
+        <View style={styles.rect}>
           <Text style={styles.text}>Use Geofencing</Text>
           <Switch value={switchValue} onValueChange={(b) => setSwitchValue(b)} />
         </View>
-        <View style={styles.horiz}>
+        <View style={styles.rect}>
           <Text style={styles.text}>Distance</Text>
-          <Text style={styles.text}>100 ft</Text>
+          <Text style={styles.bold}>100 ft</Text>
         </View>
         <MaterialMapView1 style={styles.materialMapView1}/>
       </View>
@@ -31,20 +30,30 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    backgroundColor: "#E6E6E6",
+    backgroundColor: "white",
   },
-  horiz: {
-    borderBottomWidth: 1,
-    borderBottomColor: 'black',
+  rect: {
+    height: 100,
+    paddingLeft: 30,
+    paddingRight: 30,
     flexDirection: 'row',
-    alignItems: 'center',
     justifyContent: 'space-between',
-    padding: 10,
-    backgroundColor: 'white',
+    alignItems: 'center',
+    borderBottomColor: '#303030',
+    borderBottomWidth: StyleSheet.hairlineWidth,
   },
   text: {
-    color: "black",
-    fontSize: 25,
+    fontSize: 32,
+    color: '#303030',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    flex: 1,
+    paddingRight: 20,
+  },
+  bold: {
+    fontSize: 32,
+    color: '#303030',
+    fontWeight: 'bold'
   },
   materialMapView1: {
     flex: 1,

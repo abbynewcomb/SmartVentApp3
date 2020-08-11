@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View, SafeAreaView, ScrollView } from "react-native";
-import RoomHeader from "../components/RoomHeader";
+import DetailHeader from "../components/DetailHeader";
 import TimeAndTemp from "../components/TimeAndTemp";
 
 function RoutineDetail(props) {
@@ -10,9 +10,10 @@ function RoutineDetail(props) {
     for (var i=1; i<(props.house.routines[props.stateRoutine].numTimes+1); i++) {
       listItems.push (
         <TimeAndTemp 
-          title={props.house.routines[props.stateRoutine][listTimes[i]]} 
+          temp={props.house.routines[props.stateRoutine][listTimes[i]]} 
           time={listTimes[i]} 
           key={i} 
+          house={props.house}
         />
       )
     }
@@ -21,7 +22,7 @@ function RoutineDetail(props) {
 
   return (
     <View style={styles.container}>
-      <RoomHeader title={props.stateRoutine} setRoom={props.setRoutine} />
+      <DetailHeader title={props.stateRoutine} setState={props.setRoutine} />
       <SafeAreaView style={styles.scrollArea}>
         <ScrollView>
           {getList()}
@@ -33,11 +34,11 @@ function RoutineDetail(props) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   scrollArea: {
     flex: 1,
-    backgroundColor: "#E6E6E6"
+    backgroundColor: 'white',
   },
 });
 

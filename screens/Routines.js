@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, View, ScrollView, SafeAreaView, TouchableOpacity } from "react-native";
 import MenuHeader from "../components/MenuHeader";
-import Zone from "../components/Zone";
+import ListItem from "../components/ListItem";
 import RoutineDetail from '../screens/RoutineDetail';
 
 function Routines(props) {
@@ -13,7 +13,7 @@ function Routines(props) {
       const str = new String(listNames[i]);
       listRoutines.push (
         <TouchableOpacity key={i} onPress={() => setRoutineState(str)}>
-          <Zone style={styles.temperature} title={listNames[i]} />
+          <ListItem style={styles.temperature} title={listNames[i]} />
         </TouchableOpacity>
       )
     }
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   },
   scrollArea: {
     flex: 1,
-    backgroundColor: "#E6E6E6"
+    backgroundColor: 'white',
   },
 });
 

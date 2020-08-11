@@ -1,28 +1,25 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
-import { Button } from 'react-native-elements';
+import { StyleSheet, View, Text, TouchableOpacity, TextInput } from "react-native";
 
 function LogIn(props) {
   return (
     <View style={styles.container}>
-      <View style={styles.space}/>
-      <View style={styles.content}>
-        <Text style={styles.text}>Log In</Text>
-        <View style={styles.rect}>
-          <Text style={styles.inputtext}>Username</Text>
-        </View>
-        <View style={styles.rect}>
-          <Text style={styles.inputtext}>Password</Text>
-        </View>
-        <Button
-          icon={<AntDesign name="rightcircle" style={styles.icon}/>}
-          onPress={ () => props.setApp('Home') }
-          type='clear'
-          containerStyle={styles.button}
-        />
+      <View style={styles.top}>
+        <Text style={styles.text}>Honeywell</Text>
       </View>
-      <View style={styles.space}/>
+      <View style={styles.content}>
+        <View style={styles.rect}>
+          <TextInput style={styles.inputText} value={'Email Address'} />
+        </View>
+        <View style={styles.rect}>
+          <TextInput style={styles.inputText} value={'Password'} />
+        </View>
+        <TouchableOpacity style={styles.logIn} onPress={() => props.setApp('Home')} >
+          <Text style={styles.smallText}>Log In</Text>
+        </TouchableOpacity>
+        <Text style={styles.smallText}>Forgot your password?</Text>
+      </View>
+      <View style={{flex: 1}}/>
     </View>
   );
 }
@@ -30,37 +27,45 @@ function LogIn(props) {
 const styles = StyleSheet.create({
   container:{
     flex: 1,
+    backgroundColor: '#303030',
   },
-  space: {
-    flex: 1,
-    backgroundColor: 'red',
+  top: {
+    flex: 2,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   content: {
     flex: 3,
-    backgroundColor: 'red',
     justifyContent: 'space-around',
     alignItems: 'center',
   },
   rect: {
-    width: 271,
-    height: 37,
-    backgroundColor: "rgba(255,255,255,1)",
-    borderRadius: 13,
+    width: 270,
+    borderBottomColor: '#e0e0e0',
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
+  inputText: {
+    fontSize: 18,
+    color: 'white',
+  },
+  logIn: {
+    width: 200,
+    marginTop: 10,
+    padding: 10,
     justifyContent: 'center',
+    alignItems: 'center',
+    borderColor: 'white',
+    borderWidth: StyleSheet.hairlineWidth,
+    borderRadius: 20,
   },
   text: {
     color: 'white',
     fontSize: 40,
   },
-  inputtext: {
-    color: 'black',
-    fontSize: 20,
-    marginLeft: 10,
+  smallText: {
+    color: 'white',
+    fontSize: 18,
   },
-  icon: {
-    color: "rgba(255,255,255,1)",
-    fontSize: 41,
-  }
 });
 
 export default LogIn;

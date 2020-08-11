@@ -1,49 +1,47 @@
 import React from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
-import EntypoIcon from "react-native-vector-icons/Entypo";
+import SimpleLineIconsIcon from "react-native-vector-icons/SimpleLineIcons";
 
 function MenuHeader(props) {
   return (
-    <View>
-      <View style={styles.spacer}/>
+    <View style={styles.spacer} >
+      <View style={{height: 18}}/>
       <View style={styles.container}>
-        <View style={{flex: 1}}>
-          <TouchableOpacity onPress={() => props.setMenu(!props.stateMenu)}>
-            <EntypoIcon name="menu" style={styles.icon}/>
-          </TouchableOpacity>
-        </View>
-        <View style={{flex: 5, alignItems: 'center'}}>
-          <Text style={styles.text}>{props.title}</Text>
-        </View>
-        <View style={{flex: 1}}/>
+        <TouchableOpacity onPress={() => props.setMenu(!props.stateMenu)} style={styles.iconContainer}>
+          <SimpleLineIconsIcon name="menu" style={styles.icon}/>
+        </TouchableOpacity>
+        <Text style={styles.text}>{props.title}</Text>
+        <View style={styles.iconContainer}/>
       </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  spacer: {
+    height: 65,
+    backgroundColor: '#303030',
+  },
   container: {
-    height: 60,
-    backgroundColor: 'red',
     alignItems: 'center',
+    justifyContent: 'space-between',
     flexDirection: 'row',
     paddingLeft: 10,
     paddingRight: 10,
+    height: 45
+  },
+  iconContainer: {
+    width: 28,
   },
   text: {
     marginLeft: 10,
     color: 'white',
-    fontSize: 35,
-    fontWeight: 'bold',
+    fontSize: 30,
   },
   icon: {
     color: 'white',
-    fontSize: 40,
+    fontSize: 28,
   },
-  spacer: {
-    height: 10,
-    backgroundColor: 'red',
-  }
 });
 
 export default MenuHeader;

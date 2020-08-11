@@ -1,6 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
 import { StyleSheet, View, Text } from "react-native";
-import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import EntypoIcon from "react-native-vector-icons/Entypo";
 
 function Room(props) {
@@ -8,8 +7,11 @@ function Room(props) {
     <View style={styles.container}>
       <Text style={styles.text}>{props.name}</Text>
       <View style={styles.iconcontainer}>
-        <MaterialCommunityIconsIcon name="temperature-fahrenheit" style={styles.icon}/>
-        <EntypoIcon name="chevron-thin-right" style={styles.icon}/>
+        <EntypoIcon name="chevron-thin-up" style={styles.icon}/>
+        <View style={styles.tempContainer}>
+          <Text style={styles.temp}>{props.temp}°</Text>
+        </View>
+        <EntypoIcon name="chevron-thin-down" style={styles.icon}/>
       </View>
     </View>
   );
@@ -17,24 +19,40 @@ function Room(props) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
+    height: 100,
+    paddingLeft: 30,
+    paddingRight: 30,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: 10,
-    marginLeft: 10,
-    marginRight: 10,
-    padding: 10,
+    borderBottomColor: '#303030',
+    borderBottomWidth: StyleSheet.hairlineWidth,
   },
   iconcontainer: {
     flexDirection: 'row',
+    alignItems: 'center',
   },
   text: {
-    color: "black",
-    fontSize: 25,
+    color: "#303030",
+    fontSize: 32,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    flex: 1,
+    paddingRight: 20,
   },
   icon: {
-    fontSize: 30,
+    fontSize: 20,
+    color: '#303030',
+  },
+  tempContainer: {
+    width: 70,
+    paddingLeft: 6,
+    paddingRight: 2,
+    alignItems: 'center',
+  },
+  temp: {
+    fontSize: 38,
+    color: '#1274b7',
   },
 });
 

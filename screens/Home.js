@@ -11,9 +11,10 @@ function Home(props) {
     let listNames = Object.keys(props.house.rooms);
     for (var i=0; i<props.house.numRooms; i++) {
       const str = new String(listNames[i]);
+      const str2 = new String(props.house.rooms[listNames[i]].temp);
       listRooms.push (
         <TouchableOpacity key={i} onPress={() => setRoomState(str)}>
-          <Room name={listNames[i]}/>
+          <Room name={listNames[i]} temp={str2} />
         </TouchableOpacity>
       )
     }
@@ -44,23 +45,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1
   },
-  text: {
-    top: 11,
-    left: 14,
-    position: "absolute",
-    color: "rgba(255,255,255,1)",
-    fontSize: 30
-  },
-  toolbar: {
-    position: "absolute",
-    left: 0,
-    right: 0,
-    bottom: 0,
-    height: 56
-  },
   scrollArea: { 
     flex: 1,
-    backgroundColor: "#E6E6E6",
+    backgroundColor: "white",
   },
 });
 

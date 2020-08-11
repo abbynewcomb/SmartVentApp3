@@ -13,21 +13,25 @@ function Zone(props) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
+    height: 100,
+    paddingLeft: 30,
+    paddingRight: 30,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: 10,
-    marginLeft: 10,
-    marginRight: 10,
-    padding: 10,
+    borderBottomColor: '#303030',
+    borderBottomWidth: StyleSheet.hairlineWidth,
   },
   text: {
-    fontSize: 25,
-    color: 'black',
+    fontSize: 32,
+    color: '#303030',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    flex: 1,
+    paddingRight: 20,
   },
   icon: {
-    color: "rgba(0,0,0,1)",
+    color: '#303030',
     fontSize: 30,
   },
 });
