@@ -54,6 +54,3 @@ Geofencing - shows geofencing settings and map, added in Settings
 
 
 
-********************************* State Variables *********************************
-
-
