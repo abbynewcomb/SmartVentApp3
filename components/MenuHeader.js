@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import SimpleLineIconsIcon from "react-native-vector-icons/SimpleLineIcons";
 

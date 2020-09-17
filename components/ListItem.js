@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import Icon from "react-native-vector-icons/Entypo";
 
-function Zone(props) {
+function ListItem(props) {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{props.title}</Text>
@@ -36,4 +36,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Zone;
+export default ListItem;

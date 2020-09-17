@@ -17,7 +17,7 @@ Room - name of room followed by temp w/ change arrows, used in Home and ZoneDeta
 props: name, temp (both strings, should not include degree sign)
 
 TimeAndTemp - used on the RoutineDetail screen 
-props: time, temp, house variable (in order to get number of zones)
+props: time, temp, site variable (in order to get number of zones)
 
 Vent                                                    /// not currently used
 props: title 

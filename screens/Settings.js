@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Component } from "react";
 import { StyleSheet, View, ScrollView, SafeAreaView, TouchableOpacity } from "react-native";
 import MenuHeader from "../components/MenuHeader";
 import ListItem from "../components/ListItem";
@@ -13,11 +13,11 @@ function Settings(props) {
         <MenuHeader title={'Settings'} setMenu={props.setMenu} stateMenu={props.stateMenu} />
         <SafeAreaView style={styles.scrollArea}>
           <ScrollView>
-            <ListItem style={styles.temperature} title={'Permissions'}/>
+            <ListItem title={'Permissions'}/>
             <TouchableOpacity onPress={() => setSettingState('Geofencing')} >
-              <ListItem style={styles.temperature2} title={'Geofencing'}/>
+              <ListItem title={'Geofencing'}/>
             </TouchableOpacity>
-            <ListItem style={styles.temperature3} title={'Setpoints'}/>
+            <ListItem title={'Setpoints'}/>
           </ScrollView>
         </SafeAreaView>
       </View>

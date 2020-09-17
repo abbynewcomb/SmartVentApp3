@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Component } from "react";
 import { StyleSheet, View, ScrollView, SafeAreaView, TouchableOpacity } from "react-native";
 import MenuHeader from "../components/MenuHeader";
 import ListItem from "../components/ListItem";
@@ -8,8 +8,8 @@ function Zones(props) {
   const[zoneState,setZoneState] = useState('');
   function getZones() {
     let listZones = [];
-    let listNames = Object.keys(props.house.zones);
-    for (var i=0; i<props.house.numZones; i++) {
+    let listNames = Object.keys(props.site.zones);
+    for (var i=0; i<props.site.numZones; i++) {
       const str = new String(listNames[i]);
       listZones.push (
         <TouchableOpacity key={i} onPress={() => setZoneState(str)}>
@@ -35,7 +35,7 @@ function Zones(props) {
   
   else {
     return (
-      <ZoneDetail stateZone={zoneState} setZone={setZoneState} house={props.house} />
+      <ZoneDetail stateZone={zoneState} setZone={setZoneState} site={props.site} />
     )
   }
 }

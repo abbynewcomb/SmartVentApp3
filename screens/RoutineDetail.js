@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { StyleSheet, View, SafeAreaView, ScrollView } from "react-native";
 import DetailHeader from "../components/DetailHeader";
 import TimeAndTemp from "../components/TimeAndTemp";
@@ -6,14 +6,14 @@ import TimeAndTemp from "../components/TimeAndTemp";
 function RoutineDetail(props) {
   function getList() {
     let listItems = [];
-    let listTimes = Object.keys(props.house.routines[props.stateRoutine]);
-    for (var i=1; i<(props.house.routines[props.stateRoutine].numTimes+1); i++) {
+    let listTimes = Object.keys(props.site.routines[props.stateRoutine]);
+    for (var i=1; i<(props.site.routines[props.stateRoutine].numTimes+1); i++) {
       listItems.push (
         <TimeAndTemp 
-          temp={props.house.routines[props.stateRoutine][listTimes[i]]} 
+          temp={props.site.routines[props.stateRoutine][listTimes[i]]} 
           time={listTimes[i]} 
           key={i} 
-          house={props.house}
+          site={props.site}
         />
       )
     }

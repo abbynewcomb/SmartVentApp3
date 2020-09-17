@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Component } from "react";
 import { StyleSheet, View, SafeAreaView, ScrollView, TouchableOpacity } from "react-native";
 import MenuHeader from "../components/MenuHeader";
 import Room from "../components/Room";
@@ -6,12 +6,12 @@ import RoomDetail from '../screens/RoomDetail';
 
 function Home(props) {
   const[roomState,setRoomState] = useState('');
-  function getRooms() {
+  function getRooms() { // dynamically lists rooms
     let listRooms = [];
-    let listNames = Object.keys(props.house.rooms);
-    for (var i=0; i<props.house.numRooms; i++) {
+    let listNames = Object.keys(props.site.rooms);
+    for (var i=0; i<props.site.numRooms; i++) {
       const str = new String(listNames[i]);
-      const str2 = new String(props.house.rooms[listNames[i]].temp);
+      const str2 = new String(props.site.rooms[listNames[i]].temp);
       listRooms.push (
         <TouchableOpacity key={i} onPress={() => setRoomState(str)}>
           <Room name={listNames[i]} temp={str2} />
@@ -36,7 +36,7 @@ function Home(props) {
   
   else {
     return (
-      <RoomDetail stateRoom={roomState} setRoom={setRoomState} house={props.house} />
+      <RoomDetail stateRoom={roomState} setRoom={setRoomState} site={props.site} />
     )
   }
 }

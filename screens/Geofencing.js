@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Component } from "react";
 import { StyleSheet, View, Text, Switch } from "react-native";
 import DetailHeader from "../components/DetailHeader";
 import MaterialMapView1 from "../components/MaterialMapView1";

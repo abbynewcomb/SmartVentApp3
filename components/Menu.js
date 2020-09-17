@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import EntypoIcon from "react-native-vector-icons/Entypo";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import FontAwesome5Icon from "react-native-vector-icons/FontAwesome5";
 import IoniconsIcon from "react-native-vector-icons/Ionicons";
 import FeatherIcon from "react-native-vector-icons/Feather";
+import FontistoIcon from "react-native-vector-icons/Fontisto";
 
 function Menu(props) {
 
-  function changeScreen (str) { // changes the menu to closed and changes app state to required page
+  function changeScreen(str) { // changes the menu to closed and changes app state to required page
     props.setApp(str);
     props.setMenu(false);
   }
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
     borderRightWidth: StyleSheet.hairlineWidth,
   },
   menuContainer: {
-    paddingTop: 20,
+    paddingVertical: 40,
   },
   x: {
     color: 'white', 
@@ -81,6 +82,15 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  siteRow: {
+    paddingLeft: 8,
+    paddingBottom: 5,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  siteContainer: {
+    
   },
 });
   

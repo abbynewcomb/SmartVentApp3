@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import EntypoIcon from "react-native-vector-icons/Entypo";
 import DetailHeader from "../components/DetailHeader";
@@ -6,10 +6,10 @@ import DetailHeader from "../components/DetailHeader";
 function RoomDetail(props) {
   function getVents() {
     let listVents = [];
-    let listNames = Object.keys(props.house.rooms[props.stateRoom].vents);
-    for (var i=0; i<props.house.rooms[props.stateRoom].numVents; i++) {
+    let listNames = Object.keys(props.site.rooms[props.stateRoom].vents);
+    for (var i=0; i<props.site.rooms[props.stateRoom].numVents; i++) {
       let name = new String(listNames[i]);
-      let status = new String(props.house.rooms[props.stateRoom].vents[listNames[i]].status);
+      let status = new String(props.site.rooms[props.stateRoom].vents[listNames[i]].status);
       name = name.toUpperCase();
       status = status.toUpperCase();
 
@@ -32,14 +32,14 @@ function RoomDetail(props) {
       <DetailHeader title={props.stateRoom} setState={props.setRoom} />
       <View style={styles.content}>
         <Text style={[styles.temp, {fontSize: 100, paddingBottom: 20}]}>
-          {props.house.rooms[props.stateRoom].temp}°
+          {props.site.rooms[props.stateRoom].temp}°
         </Text>
         <Text style={styles.text}>STATUS: ON TIME</Text>
         {getVents()}
         <View style={styles.iconcontainer}>
           <EntypoIcon name="chevron-thin-up" style={styles.icon}/>
           <View style={styles.tempContainer}>
-            <Text style={styles.temp}>{props.house.rooms[props.stateRoom].temp}°</Text>
+            <Text style={styles.temp}>{props.site.rooms[props.stateRoom].temp}°</Text>
           </View>
           <EntypoIcon name="chevron-thin-down" style={styles.icon}/>
         </View>

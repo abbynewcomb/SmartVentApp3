@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
 import { StyleSheet, View, ScrollView } from "react-native";
 import Room from "../components/Room";
 import DetailHeader from "../components/DetailHeader";
@@ -6,9 +6,9 @@ import DetailHeader from "../components/DetailHeader";
 function ZoneDetail(props) {
   function getList() {
     let listItems = [];
-    let listNames = Object.keys(props.house.zones[props.stateZone]);
-    for (var i=0; i<props.house.numRooms; i++) {
-      const str = new String(props.house.zones[props.stateZone][listNames[i]]);
+    let listNames = Object.keys(props.site.zones[props.stateZone]);
+    for (var i=0; i<props.site.numRooms; i++) {
+      const str = new String(props.site.zones[props.stateZone][listNames[i]]);
       listItems.push (
         <Room name={listNames[i]} temp={str} key={i} />
       )
